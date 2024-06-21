@@ -24,7 +24,7 @@ def treat_price(x):
     if type(x) == float:
         return x
     else:
-        val = x.split(" ")
+        val = str(x).split(" ")
         if val[1] == 'Lac':
             return round(float(val[0])/100,2)
         else:
@@ -36,7 +36,7 @@ df['price'].dropna(inplace=True)
 
 df = df.dropna(subset=['price'])
 
-df['price'] = df['price'].str.split(' ').apply(treat_price)
+df['price'] = df['price'].apply(treat_price)
 
 df['price_per_sqft'] = df['price_per_sqft'].str.split('/').str.get(0).str.replace('₹','').str.replace(',','').str.strip().astype('float')
 
@@ -63,7 +63,6 @@ df['facing'] = df['facing'].fillna('NA')
 
 df['area'] = round((df['price']*10000000)/df['price_per_sqft'])
 
-df.insert(loc=4,column='area',value=round((df['price']*10000000)/df['price_per_sqft']))
 
 
 df.insert(loc=1,column='property_type',value='house')
@@ -79,5 +78,4 @@ obj = Path(path)
 # Check if path points to
 # an existing file or directory
 # print(obj.exists())
-if ~obj.exists():
-    df.to_csv(path,index=False)
+df.to_csv(path,index=False)
