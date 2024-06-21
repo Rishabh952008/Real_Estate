@@ -69,4 +69,5 @@ obj = Path(path)
 # Check if path points to
 # an existing file or directory
 # print(obj.exists())
-df.to_csv(path,index=False)
+if ~obj.exists():
+    df.to_csv(path,index=False)
