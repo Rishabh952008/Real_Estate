@@ -40,3 +40,15 @@ stages:
       hash: md5
       md5: dc22d640da10885ed46ba5fe1db37f16
       size: 6800154
+  data_prepro_l2:
+    cmd: python src/data_prepro_l2.py
+    deps:
+    - path: prepared_data/gurgaon_properties_merged.csv
+      hash: md5
+      md5: dc22d640da10885ed46ba5fe1db37f16
+      size: 6800154
+    outs:
+    - path: prepared_data/gurgaon_properties_cleaned_v1.csv
+      hash: md5
+      md5: d55f69569d48ae2a06d6742e852dd155
+      size: 3823676

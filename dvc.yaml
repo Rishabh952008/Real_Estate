@@ -18,3 +18,9 @@ stages:
     - prepared_data/houses_cleaned.csv
     outs:
     - prepared_data/gurgaon_properties_merged.csv
+  data_prepro_l2:
+    cmd: python src/data_prepro_l2.py
+    deps:
+    - prepared_data/gurgaon_properties_merged.csv
+    outs:
+    - prepared_data/gurgaon_properties_merged_cleaned_l2.csv
