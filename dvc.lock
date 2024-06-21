@@ -7,6 +7,11 @@ stages:
       hash: md5
       md5: e9adc40d76d671ceaaea829af4e1442c
       size: 5735638
+    outs:
+    - path: prepared_data/flats_cleaned.csv
+      hash: md5
+      md5: ffc91710fc66f802e9ad57dc71498455
+      size: 5159351
   house_preprocessing:
     cmd: python src/house_preprocessing.py
     deps:
@@ -14,3 +19,24 @@ stages:
       hash: md5
       md5: 915cb64339543f9bd1db90c92425e07e
       size: 2004120
+    outs:
+    - path: prepared_data/houses_cleaned.csv
+      hash: md5
+      md5: b5b313fa96582a87b32a6865bff808cf
+      size: 1635522
+  merging_house_flats:
+    cmd: python src/merging_house_flats.py
+    deps:
+    - path: prepared_data/flats_cleaned.csv
+      hash: md5
+      md5: ffc91710fc66f802e9ad57dc71498455
+      size: 5159351
+    - path: prepared_data/houses_cleaned.csv
+      hash: md5
+      md5: b5b313fa96582a87b32a6865bff808cf
+      size: 1635522
+    outs:
+    - path: prepared_data/gurgaon_properties_merged.csv
+      hash: md5
+      md5: dc22d640da10885ed46ba5fe1db37f16
+      size: 6800154

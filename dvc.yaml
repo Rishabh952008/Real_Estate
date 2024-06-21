@@ -7,3 +7,8 @@ stages:
     cmd: python src/house_preprocessing.py
     deps:
     - data/raw/houses.csv
+  merging_house_flats:
+    cmd: python src/merging_house_flats.py
+    deps:
+    - data/processed/flats_cleaned.csv
+    - data/processed/houses_cleaned.csv
