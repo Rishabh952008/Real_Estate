@@ -1,0 +1,5 @@
+stages:
+  flats_preprocessing:
+    cmd: python src/flats_preprocessing.py
+    deps:
+    - data/raw/flats.csv
