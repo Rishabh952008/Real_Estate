@@ -3,3 +3,7 @@ stages:
     cmd: python src/flats_preprocessing.py
     deps:
     - data/raw/flats.csv
+  house_preprocessing:
+    cmd: python src/house_preprocessing.py
+    deps:
+    - data/raw/houses.csv
