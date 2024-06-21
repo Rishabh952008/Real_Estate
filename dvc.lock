@@ -7,3 +7,10 @@ stages:
       hash: md5
       md5: e9adc40d76d671ceaaea829af4e1442c
       size: 5735638
+  house_preprocessing:
+    cmd: python src/house_preprocessing.py
+    deps:
+    - path: data/raw/houses.csv
+      hash: md5
+      md5: 915cb64339543f9bd1db90c92425e07e
+      size: 2004120
