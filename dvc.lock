@@ -52,3 +52,15 @@ stages:
       hash: md5
       md5: d55f69569d48ae2a06d6742e852dd155
       size: 3823676
+  feature_engineering:
+    cmd: python src/feature_engineering.py
+    deps:
+    - path: prepared_data/gurgaon_properties_cleaned_v1.csv
+      hash: md5
+      md5: d55f69569d48ae2a06d6742e852dd155
+      size: 3823676
+    outs:
+    - path: prepared_data/gurgaon_properties_cleaned_v2.csv
+      hash: md5
+      md5: b41f90d0f613fb356b7a6bb37fad6947
+      size: 628045
