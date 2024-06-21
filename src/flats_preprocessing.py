@@ -61,7 +61,7 @@ df.insert(loc=1,column='property_type',value='flat')
 
  
 # Path
-path = 'data/processed/flats_cleaned.csv'
+path = 'prepared_data/flats_cleaned.csv'
  
 # Instantiate the Path class
 obj = Path(path)
@@ -69,5 +69,4 @@ obj = Path(path)
 # Check if path points to
 # an existing file or directory
 # print(obj.exists())
-if ~obj.exists():
-    df.to_csv(path,index=False)
+df.to_csv(path,index=False)

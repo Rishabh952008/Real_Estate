@@ -3,12 +3,18 @@ stages:
     cmd: python src/flats_preprocessing.py
     deps:
     - data/raw/flats.csv
+    outs:
+    - prepared_data/flats_cleaned.csv
   house_preprocessing:
     cmd: python src/house_preprocessing.py
     deps:
     - data/raw/houses.csv
+    outs:
+    - prepared_data/houses_cleaned.csv
   merging_house_flats:
     cmd: python src/merging_house_flats.py
     deps:
-    - data/processed/flats_cleaned.csv
-    - data/processed/houses_cleaned.csv
+    - prepared_data/flats_cleaned.csv
+    - prepared_data/houses_cleaned.csv
+    outs:
+    - prepared_data/gurgaon_properties_merged.csv

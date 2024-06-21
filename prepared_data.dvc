@@ -1,6 +1,0 @@
-outs:
-- md5: 5a26a071781e2128c5b9c87db2360376.dir
-  size: 5159351
-  nfiles: 1
-  hash: md5
-  path: prepared_data

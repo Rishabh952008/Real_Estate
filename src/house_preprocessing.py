@@ -70,7 +70,7 @@ df.insert(loc=1,column='property_type',value='house')
 
  
 # Path
-path = 'data/processed/houses_cleaned.csv'
+path = 'prepared_data/houses_cleaned.csv'
  
 # Instantiate the Path class
 obj = Path(path)
