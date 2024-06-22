@@ -64,3 +64,15 @@ stages:
       hash: md5
       md5: b41f90d0f613fb356b7a6bb37fad6947
       size: 628045
+  outlier_handling:
+    cmd: python src/outlier_handling.py
+    deps:
+    - path: prepared_data/gurgaon_properties_cleaned_v2.csv
+      hash: md5
+      md5: b41f90d0f613fb356b7a6bb37fad6947
+      size: 628045
+    outs:
+    - path: prepared_data/outliers_cleaned.csv
+      hash: md5
+      md5: 77f8b89e4b91963d8281786bae190b54
+      size: 623756
