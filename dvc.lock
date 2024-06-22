@@ -76,3 +76,15 @@ stages:
       hash: md5
       md5: 77f8b89e4b91963d8281786bae190b54
       size: 623756
+  missing_value_imputation:
+    cmd: python src/missing_value_imputation.py
+    deps:
+    - path: prepared_data/outliers_cleaned.csv
+      hash: md5
+      md5: 77f8b89e4b91963d8281786bae190b54
+      size: 623756
+    outs:
+    - path: prepared_data/missing_value_imputed.csv
+      hash: md5
+      md5: 50459294abcc1303069f4eadcd5f70c5
+      size: 351430

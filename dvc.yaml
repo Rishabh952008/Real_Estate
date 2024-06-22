@@ -36,3 +36,9 @@ stages:
     - prepared_data/gurgaon_properties_cleaned_v2.csv
     outs:
     - prepared_data/outliers_cleaned.csv
+  missing_value_imputation:
+    cmd: python src/missing_value_imputation.py
+    deps:
+    - prepared_data/outliers_cleaned.csv
+    outs:
+    - prepared_data/missing_value_imputed.csv
