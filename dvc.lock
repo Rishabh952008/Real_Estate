@@ -88,3 +88,15 @@ stages:
       hash: md5
       md5: 50459294abcc1303069f4eadcd5f70c5
       size: 351430
+  feature_selection:
+    cmd: python src/feature_selection.py
+    deps:
+    - path: prepared_data/missing_value_imputed.csv
+      hash: md5
+      md5: 50459294abcc1303069f4eadcd5f70c5
+      size: 351430
+    outs:
+    - path: prepared_data/gurgaon_properties_post_feature_selection.csv
+      hash: md5
+      md5: f2fc033fa91f94ebdb3d3c5b24603749
+      size: 171025
