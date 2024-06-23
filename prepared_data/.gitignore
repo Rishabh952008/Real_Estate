@@ -6,3 +6,5 @@
 /outliers_cleaned.csv
 /missing_value_imputed.csv
 /gurgaon_properties_post_feature_selection.csv
+/flats_cleaned.csv
+/houses_cleaned.csv
