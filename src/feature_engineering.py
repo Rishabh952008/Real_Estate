@@ -302,5 +302,5 @@ df['luxury_score'] = luxury_score
 # cols to drop -> nearbyLocations,furnishDetails, features,features_list, additionalRoom
 df.drop(columns=['nearbyLocations','furnishDetails','features','features_list','additionalRoom'],inplace=True)
 
-df.to_csv('prepared_data/gurgaon_properties_cleaned_v2.csv',index=False)
+df.to_csv('prepared_data/feature_engineering_post.csv',index=False)
 

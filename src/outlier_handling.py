@@ -1,7 +1,7 @@
 import pandas as pd 
 import numpy as np
 
-df = pd.read_csv('prepared_data/gurgaon_properties_cleaned_v2.csv')
+df = pd.read_csv('prepared_data/feature_engineering_post.csv')
 
 df.drop_duplicates()
 
