@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import time
 
 # Base URL for Google Search
 BASE_URL = "https://www.google.com/search?q="
@@ -18,7 +19,7 @@ def get_coordinates(sector):
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
-        coordinates_div = soup.find("div", class_="Z0LcW t2b5Cf")
+        coordinates_div = soup.find("div", class_="Z0LcW t2b5Cf vMhfn")
         if coordinates_div:
             return coordinates_div.text
     return None
@@ -30,7 +31,9 @@ df = pd.DataFrame(columns=["Sector", "Coordinates"])
 # Iterate over sectors and fetch coordinates
 for sector in range(1, 116):
     coordinates = get_coordinates(sector)
-    df = df.append({"Sector": f"Sector {sector}", "Coordinates": coordinates}, ignore_index=True)
+    new_row = pd.DataFrame({"Sector": [f"Sector {sector}"], "Coordinates": [coordinates]})
+    df =  pd.concat([df, new_row], ignore_index=True)
+    time.sleep(2)
 
 # Save DataFrame
 df.to_csv("gurgaon_sectors_coordinates.csv", index=False)

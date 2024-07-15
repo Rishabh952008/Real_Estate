@@ -93,10 +93,22 @@ stages:
     deps:
     - path: prepared_data/missing_value_imputed.csv
       hash: md5
-      md5: ee99c84cfe8b82b4c41ab9eb4d9a6fd2
-      size: 351430
+      md5: 023f3570aed50922882c95177fe216b9
+      size: 351431
     outs:
-    - path: prepared_data/gurgaon_properties_post_feature_selection.csv
+    - path: prepared_data/post_feature_selection.csv
       hash: md5
-      md5: 78c137273de359db6bafbc9ac0543151
-      size: 264133
+      md5: b16d89c6e6b50cfd8c682d377e9220f0
+      size: 264134
+  model_building:
+    cmd: python src/model_building.py
+    deps:
+    - path: prepared_data/post_feature_selection.csv
+      hash: md5
+      md5: b16d89c6e6b50cfd8c682d377e9220f0
+      size: 264134
+    outs:
+    - path: models/xgb_model.pkl
+      hash: md5
+      md5: 59b452e46f3505877b327b7139f9f87e
+      size: 259329

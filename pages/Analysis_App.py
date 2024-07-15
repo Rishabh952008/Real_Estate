@@ -51,6 +51,22 @@ def top_5_societies(df,dense):
     # Show the plot in Streamlit
     st.plotly_chart(fig)
     
+def geo_map_analysis(df):
+    
+    latlong = pd.read_csv('data/raw/latlong.csv')
+    
+    latlong['lat']=latlong['coordinates'].str.split(',').str.get(0).str.split('°').str.get(0).astype('float')
+    latlong['long']=latlong['coordinates'].str.split(',').str.get(1).str.split('°').str.get(0).astype('float')
+    
+    new_df = df.merge(latlong,on='sector')
+    
+    group = new_df.groupby(['sector'])[['price','price_per_sqft','built_up_area','lat','long']].mean()
+    
+    
+    fig = px.scatter_mapbox(group, lat="lat", lon="long", color="price_per_sqft", size="built_up_area",
+                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=20, zoom=10,
+                  mapbox_style='open-street-map',text=group.index)
+    st.plotly_chart(fig)
     
 
 
@@ -67,4 +83,7 @@ if __name__=='__main__':
     option = st.selectbox("Select Density Type:", ("Highly Dense", "Less Dense"))
 
     top_5_societies(df[df['society']!='independent'],option)
+    
+    st.header("Geographical Analyis of Gurgaon Properties")
+    geo_map_analysis(df=df)
     

@@ -42,4 +42,16 @@ stages:
     - prepared_data/outliers_cleaned.csv
     outs:
     - prepared_data/missing_value_imputed.csv
+  feature_selection:
+    cmd: python src/feature_selection.py
+    deps:
+    - prepared_data/missing_value_imputed.csv
+    outs:
+    - prepared_data/post_feature_selection.csv
+  model_building:
+    cmd: python src/model_building.py
+    deps:
+    - prepared_data/post_feature_selection.csv
+    outs:
+    - models/xgb_model.pkl
 
