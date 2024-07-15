@@ -53,5 +53,5 @@ stages:
     deps:
     - prepared_data/post_feature_selection.csv
     outs:
-    - models/xgb_model.pkl
+    - models/pipeline.pkl
 

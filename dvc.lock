@@ -38,77 +38,77 @@ stages:
     outs:
     - path: prepared_data/gurgaon_properties_merged.csv
       hash: md5
-      md5: d1a7f32ed53948c4afa04f653ffeb33e
+      md5: 366ee7e51d4416b52fa6b4e3c5fd14e5
       size: 6800154
   data_prepro_l2:
     cmd: python src/data_prepro_l2.py
     deps:
     - path: prepared_data/gurgaon_properties_merged.csv
       hash: md5
-      md5: d1a7f32ed53948c4afa04f653ffeb33e
+      md5: 366ee7e51d4416b52fa6b4e3c5fd14e5
       size: 6800154
     outs:
     - path: prepared_data/gurgaon_properties_cleaned_v1.csv
       hash: md5
-      md5: 7f99d423740838c952a6dcd82c65df13
-      size: 3823679
+      md5: 3827d14b5ac75ef19ef629160edc7a89
+      size: 3823678
   feature_engineering:
     cmd: python src/feature_engineering.py
     deps:
     - path: prepared_data/gurgaon_properties_cleaned_v1.csv
       hash: md5
-      md5: 7f99d423740838c952a6dcd82c65df13
-      size: 3823679
+      md5: 3827d14b5ac75ef19ef629160edc7a89
+      size: 3823678
     outs:
     - path: prepared_data/feature_engineering_post.csv
       hash: md5
-      md5: d93379612b2b37496a60fc934826c56d
-      size: 628048
+      md5: 2e51538f2ff1d81b6ce3d2c15fd09840
+      size: 628047
   outlier_handling:
     cmd: python src/outlier_handling.py
     deps:
     - path: prepared_data/feature_engineering_post.csv
       hash: md5
-      md5: d93379612b2b37496a60fc934826c56d
-      size: 628048
+      md5: 2e51538f2ff1d81b6ce3d2c15fd09840
+      size: 628047
     outs:
     - path: prepared_data/outliers_cleaned.csv
       hash: md5
-      md5: 60d6a8e026e7a06d72f82a312acc37e4
-      size: 623759
+      md5: fa7049370dedeff5876810a748198427
+      size: 623758
   missing_value_imputation:
     cmd: python src/missing_value_imputation.py
     deps:
     - path: prepared_data/outliers_cleaned.csv
       hash: md5
-      md5: 60d6a8e026e7a06d72f82a312acc37e4
-      size: 623759
+      md5: fa7049370dedeff5876810a748198427
+      size: 623758
     outs:
     - path: prepared_data/missing_value_imputed.csv
       hash: md5
-      md5: cd96c89dad3bb6b9f265711dbc1bb280
-      size: 351431
+      md5: 0b7ce858a5424da1c44301436b2d8dfe
+      size: 351428
   feature_selection:
     cmd: python src/feature_selection.py
     deps:
     - path: prepared_data/missing_value_imputed.csv
       hash: md5
-      md5: cd96c89dad3bb6b9f265711dbc1bb280
-      size: 351431
+      md5: 0b7ce858a5424da1c44301436b2d8dfe
+      size: 351428
     outs:
     - path: prepared_data/post_feature_selection.csv
       hash: md5
-      md5: 2935d63034d0a42bf54ad787d9c33ccf
-      size: 264134
+      md5: a215d4a74fa88ca0ae35ca869dedd9ed
+      size: 264131
   model_building:
     cmd: python src/model_building.py
     deps:
     - path: prepared_data/post_feature_selection.csv
       hash: md5
-      md5: 2935d63034d0a42bf54ad787d9c33ccf
-      size: 264134
+      md5: a215d4a74fa88ca0ae35ca869dedd9ed
+      size: 264131
     outs:
-    - path: models/xgb_model.pkl
+    - path: models/pipeline.pkl
       hash: md5
-      md5: f1b8efe8529bde989fc07ee5442f699f
-      size: 249809
+      md5: 7f8fac1b5f6ac9427f1518dd0030cde9
+      size: 152643553
