@@ -97,7 +97,7 @@ X = transform_input(X)
 # Applying the log1p transformation to the target variable
 y_transformed = np.log1p(y)
 
-X_train, X_test, y_train, y_test = train_test_split(X,y , 
+X_train, X_test, y_train, y_test = train_test_split(X,y_transformed , 
                                    random_state=104,  
                                    test_size=0.30,  
                                    shuffle=True) 
@@ -106,8 +106,11 @@ xgb_model = XGBRegressor()
 
 xgb_model.fit(X_train,y_train)
 
+X.to_csv('X.csv',index=False)
+
 with open('models/xgb_model.pkl', 'wb') as file:
     pickle.dump(xgb_model, file)
 
-
+with open('data/raw/df.pkl', 'wb') as file:
+    pickle.dump(X, file)
 
