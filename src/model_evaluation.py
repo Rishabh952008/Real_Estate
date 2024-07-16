@@ -154,7 +154,7 @@ def main():
         param = params['model_evaluation']
         
             # Build pipeline
-        pipeline = build_pipeline(n_estimators=param['n_estimators'],max_depth=param['max_depth'],param=param)
+        pipeline = build_pipeline(n_estimators=param['n_estimators'],max_depth=param['max_depth'])
 
         # Train-test split
         X_train, X_test, y_train, y_test = train_test_split(X, y_transformed, test_size=param['test_size'], random_state=42)
@@ -163,7 +163,7 @@ def main():
         pipeline.fit(X_train, y_train)
 
             # Evaluate model
-        evaluate_model(pipeline, X_test, y_test)
+        evaluate_model(pipeline, X_test, y_test,param=param)
 
             # Save model
         # model_file = f'models/rf_model.pkl'
