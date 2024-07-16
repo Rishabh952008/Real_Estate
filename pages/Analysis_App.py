@@ -198,9 +198,9 @@ if __name__=='__main__':
  'furnishDetails',
  'features',
  'rating']
-    
+    df1 = pd.read_csv('pages/wordcloud_df.csv')
     # sector
-    sector = st.selectbox('Sector',sorted(df['sector'].unique().tolist()))
+    sector = st.selectbox('Sector',sorted(df1['sector'].unique().tolist()))
     Facilities = st.selectbox('Facilities',columns)
     wordcloud_build(sector_name=sector,colname=Facilities)
     

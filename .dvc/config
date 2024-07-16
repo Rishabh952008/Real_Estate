@@ -1,5 +1,7 @@
 [core]
     autostage = true
-    remote = datastore
+    remote = myremote
 ['remote "datastore"']
+    url = s3://realestateguidebyris
+['remote "myremote"']
     url = s3://realestateguidebyris

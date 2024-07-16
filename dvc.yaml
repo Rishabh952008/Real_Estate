@@ -54,4 +54,11 @@ stages:
     - prepared_data/post_feature_selection.csv
     outs:
     - models/pipeline.pkl
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - data/processed/X.csv
+    - data/processed/y_transformed.csv
+
+   
 
