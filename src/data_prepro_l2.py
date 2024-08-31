@@ -97,7 +97,7 @@ df.loc[2800,'sector'] = 'sector 92'
 df.loc[2838,'sector'] = 'sector 90'
 df.loc[2857,'sector'] = 'sector 76'
 
-df.loc[[311,1486,3040,3875],'sector'] = 'sector 110'
+df.loc[[1486,3040,3875],'sector'] = 'sector 110'
 
 # features to drop -> property_name, address, description, rating
 df.drop(columns=['property_name', 'address', 'description', 'rating'],inplace=True)
